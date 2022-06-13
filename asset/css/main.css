@@ -1,0 +1,41 @@
+.calandar__table{
+    width: 100%;
+    height: calc(100vh - 128px);
+}
+.calandar__table td{
+    padding: 10px;
+    border:1px solid #CCC;
+    vertical-align: top;
+    width: 14,29%;
+}
+.calandar__day
+{
+    font-weight: bold;
+    color:black;
+    font-size: 1em;
+}
+.prout .calandar_numday
+{
+    opacity: 0.4;
+}
+.calandar
+{
+    position: relative;
+}
+.calandar_add
+{
+    display: block;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    color:#FFF;
+    font-size: 30px;
+    background-color: #007bff;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    text-decoration: none;
+   
+}
