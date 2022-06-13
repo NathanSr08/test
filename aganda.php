@@ -23,8 +23,12 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/Vadd_event.php">Ajouter <span class="sr-only">(current)</span></a>
+      <?php if($_SESSION['role']=="ADMIN")
+      { ?>
+      <a class="nav-item nav-link active" href="../php/add_csv.php">Ajouter leads</a>
+      <a class="nav-item nav-link active" href="../php/liste_csv.php">Lister leads</a>
       <a class="nav-item nav-link" href="vue/vadd_user.php">Add user</a>
+      <?php } ?>
       <a class="nav-item nav-link" href="php/logout.php">logout</a>
       <a class="nav-item nav-link disabled" href="#">Disabled</a>
     </div>

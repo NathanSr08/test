@@ -21,7 +21,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/Vadd_event.php">Ajouter <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="../php/add_csv.php">Ajouter Excel</span></a>
       <a class="nav-item nav-link" href="#">Pricing</a>
       <a class="nav-item nav-link disabled" href="#">Disabled</a>
     </div>

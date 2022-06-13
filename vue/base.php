@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<?php include('../class/Mounth.php');include('../class/event.php');include('../class/bdd.php');?>
+<?php session_start();include('../class/Mounth.php');include('../class/event.php');include('../class/bdd.php');?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,7 +23,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/Vadd_event.php">Ajouter <span class="sr-only">(current)</span></a>
+    <?php if($_SESSION['role']=="ADMIN")
+      { ?>
+      <a class="nav-item nav-link active" href="../php/add_csv.php">Ajouter Leads</a>
+      <a class="nav-item nav-link active" href="../php/liste_csv.php">Lister Leads</a>
+      <?php } ?>
       <a class="nav-item nav-link" href="../php/logout.php">logout</a>
       <a class="nav-item nav-link" href="#">Pricing</a>
       <a class="nav-item nav-link disabled" href="#">Disabled</a>
