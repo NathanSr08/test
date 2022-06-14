@@ -1,4 +1,4 @@
-<?php session_start(); include('base.php'); ?>
+<?php  include('base.php'); ?>
 <div class="container">
     <h3>Ajouter Evenement</h3>
 <form action="../php/add.php" method="post">

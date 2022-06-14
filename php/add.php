@@ -1,7 +1,7 @@
 <?php
 include('../class/event.php');
 include('../class/bdd.php');
-session_start();
+
 $pdo = get_pdo();
 $events = new App\Date\Events($pdo);
 $id = $_POST['id'];

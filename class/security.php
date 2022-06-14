@@ -7,9 +7,9 @@ public function __construct(\PDO $pdo)
 {
     $this->pdo = $pdo;
 }
-    public function add_user($nom,$mdp)
+    public function add_user($nom,$mdp,$id_t)
     {
-        $stat = $this->pdo->prepare("insert into user (`name`,`mdp`,`role`) VALUES ('".$nom."','".$mdp."','USER')");
+        $stat = $this->pdo->prepare("insert into user (`name`,`mdp`,`role`,`id_type`) VALUES ('".$nom."','".$mdp."','USER',$id_t)");
         $stat->execute();
     }
     public function connect($id,$nom,$role)

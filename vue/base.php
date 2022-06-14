@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
-<?php session_start();include('../class/Mounth.php');include('../class/event.php');include('../class/bdd.php');?>
+<?php session_start();  ?> 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- CSS only -->
     
@@ -23,13 +22,16 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-    <?php if($_SESSION['role']=="ADMIN")
-      { ?>
-      <a class="nav-item nav-link active" href="../php/add_csv.php">Ajouter Leads</a>
-      <a class="nav-item nav-link active" href="../php/liste_csv.php">Lister Leads</a>
+      <?php if(isset($_SESSION['role'])) { ?>
+      <a class="nav-item nav-link active" href="../php/add_csv.php">Add leads</span></a>
+      <a class="nav-item nav-link active" href="../php/liste_csv.php">View leads</span></a>
+      <a class="nav-item nav-link active" href="../php/add_user.php">Add user</span></a>
+      <a class="nav-item nav-link active" href="../php/lister_user.php">View users</span></a>
+
       <?php } ?>
+      <?php if(isset($_SESSION['id'])) { ?>
       <a class="nav-item nav-link" href="../php/logout.php">logout</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
+      <?php }  ?>
       <a class="nav-item nav-link disabled" href="#">Disabled</a>
     </div>
   </div>
