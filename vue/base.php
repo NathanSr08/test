@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<?php session_start();  ?> 
+<!-- <?php session_start(); ?> -->
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- CSS only -->
     
@@ -23,16 +23,33 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <?php if(isset($_SESSION['role'])) { ?>
-      <a class="nav-item nav-link active" href="../php/add_csv.php">Add leads</span></a>
-      <a class="nav-item nav-link active" href="../php/liste_csv.php">View leads</span></a>
-      <a class="nav-item nav-link active" href="../php/add_user.php">Add user</span></a>
-      <a class="nav-item nav-link active" href="../php/lister_user.php">View users</span></a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Leads</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../php/add_csv.php">Ajouter</a>
+            <a class="dropdown-item" href="../php/my_leads.php">Mes leads</a>
+            <a class="dropdown-item" href="../php/liste_csv.php">lister all</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Users</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../php/add_user.php">Ajouter</a>
+            <a class="dropdown-item" href="../php/lister_user.php">View all</a>
+           
+        </li>
+   
 
       <?php } ?>
       <?php if(isset($_SESSION['id'])) { ?>
       <a class="nav-item nav-link" href="../php/logout.php">logout</a>
       <?php }  ?>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+     
+     
+      
     </div>
+    
   </div>
 </nav>

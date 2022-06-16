@@ -9,7 +9,7 @@ public function __construct(\PDO $pdo)
     $this->pdo = $pdo;
 }
 public function geteventbetween(\DateTime $start,\DateTime $end,int $id_c):array{
-    $pdo = new \PDO('mysql:host=172.18.0.3;dbname=aganda','root','password',[
+    $pdo = new \PDO('mysql:host=172.18.0.4;dbname=aganda','root','password',[
         \PDO::ATTR_ERRMODE  => \PDO::ERRMODE_EXCEPTION,
         \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC
     ]);
@@ -22,13 +22,13 @@ public function geteventbetween(\DateTime $start,\DateTime $end,int $id_c):array
     
 }
 public function geteventbetweenAdmin(\DateTime $start,\DateTime $end):array{
-    $pdo = new \PDO('mysql:host=172.18.0.3;dbname=aganda','root','password',[
-        \PDO::ATTR_ERRMODE  => \PDO::ERRMODE_EXCEPTION,
-        \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC
-    ]);
+    // $pdo = new \PDO('mysql:host=172.18.0.3;dbname=aganda','root','password',[
+    //     \PDO::ATTR_ERRMODE  => \PDO::ERRMODE_EXCEPTION,
+    //     \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC
+    // ]);
     $sql = "SELECT * FROM events where start between '{$start->format('Y-m-d 00:00:00')}' AND '{$end->format('Y-m-d 23:59:59')}'";
  
-    $statement = $pdo->query($sql);
+    $statement = $this->pdo->query($sql);
     $result = $statement->fetchAll();
 
     return $result;
