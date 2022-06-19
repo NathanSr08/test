@@ -2,6 +2,18 @@
 <?php
 include('base.php');
 if(isset($_SESSION['login'])) {  $id_c = $_SESSION['id']; include('class/Mounth.php');include('class/event.php');
+  if(isset($_GET['er']))
+  {
+    if($_GET['er']==1)
+    {
+      ?>
+      <div class="alert alert-danger" role="alert">
+ Accées refusé!
+</div>
+<?php
+    }
+  }
+
 try{
 $mount = new App\Date\Mounth($_GET['mois'] ?? null, $_GET['year'] ?? null);
 
@@ -55,22 +67,22 @@ $pdo = get_pdo();
   
   
   <?php for($i=0;$i<$mount->getweeks();$i++){ ?>
-  <tr>
+  <tr style="text-decoration: none;">
    <?php foreach($mount->days as $k => $day):?>
    <?php $date = (clone $start)->modify('+ '.$k+($i * 7).' days');
          $eventsForDay = $events[$date->format('Y-m-d')] ?? []; 
        
    ?>
-<td class="<?php if($mount->verifdayinmonth($date)){?>''<?php } else{ ?>prout<?php } ?>">
+<td style="text-decoration: none;" class="<?php if($mount->verifdayinmonth($date)){?>''<?php } else{ ?>prout<?php } ?>">
   <?php if($i==0):?>
     <div class="calandar__day"><?php echo $day ?></div>
     <?php  endif;?>
    
-    <div class="calandar_numday"><?php echo (clone $start)->modify('+ '.$k+($i * 7).' days')->format('d'); ?></div>
+    <div style="text-decoration: none;" class="calandar_numday"><?php echo (clone $start)->modify('+ '.$k+($i * 7).' days')->format('d'); ?></div>
     <?php foreach($eventsForDay as $event):  ?>
       <?php if($mount->verifdayinmonth($date)){
         ?>
-  <div class="event"><?php echo (new DateTime($event["start"]))->format('H:i') ?> - <a href="/vue/event.php?id=<?php echo $event["id"]?>"><?php echo  $event["name"] ?></a></div>
+  <span style="text-decoration: none;" class="badge bg-dark"><div class="event" style="text-decoration:none;"><?php echo (new DateTime($event["start"]))->format('H:i') ?> - <a  href="/vue/event.php?id=<?php echo $event["id"]?>" style="text-decoration: none;"><?php echo  $event["name"] ?></a></div></span>
   <?php
        } ?>
    

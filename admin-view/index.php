@@ -1,6 +1,7 @@
 <?php 
-
+session_start();
 include('../class/bdd.php');include('../class/security.php');
+if(isset($_SESSION['id'])) {  header('Location:index2.php'); }
 if(count($_POST)>0)
 {
     
@@ -14,8 +15,8 @@ if($user==0)
     
     $u = $_SESSION['login'];
     sendtelegram($u.' s\'est connecter !');
-    // header('Location:../aganda.php');
-    echo $_SESSION['login'];
+    header('Location:index2.php');
+  
 }
 else
 {

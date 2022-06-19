@@ -55,6 +55,38 @@ function lister_csv()
 
 
   }
+  function get_one_csv_Admin($idd)
+  {
+    $connect = get_pdo();
+    $requete = "SELECT * from test where  id = $idd ;";
+    $jeuResultat=$connect->query($requete); // on va chercher tous les membres de la table qu'on trie par ordre croissant
+
+        $jeuResultat->setFetchMode(PDO::FETCH_OBJ); // on dit qu'on veut que le resultat soit recuperable sous forme d'objet  
+        $i = 0;
+   
+
+        $ligne = $jeuResultat->fetch();
+        while($ligne)
+        {
+
+            $info[$i]['ID']=$ligne->id;
+            $info[$i]['Nom']=$ligne->Nom;
+            $info[$i]['Proprio']=$ligne->proprio;
+            $info[$i]['Energie']=$ligne->energie;
+            $info[$i]['Num']=$ligne->tel;
+            $info[$i]['cp']=$ligne->departement;
+            $info[$i]['Conso']=$ligne->comso;
+            $info[$i]['mode_c']=$ligne->energie;
+
+
+            $ligne=$jeuResultat->fetch();
+            $i = $i + 1;
+
+        }
+        $jeuResultat->closeCursor();   // fermer le jeu de r�sultat
+        // deconnecterServeurBD($idConnexion);
+        return $info;
+  }
   function get_one_csv($id,$idd)
   {
     $connect = get_pdo();
@@ -90,7 +122,7 @@ function lister_csv()
   function lister_csv_byuser($id)
 {
     $connect = get_pdo();
-    $requete = "SELECT * from test where id_user=$id ;";
+    $requete = "SELECT * from test where id_user=$id and id_c = 0 ;";
     $jeuResultat=$connect->query($requete); // on va chercher tous les membres de la table qu'on trie par ordre croissant
 
         $jeuResultat->setFetchMode(PDO::FETCH_OBJ); // on dit qu'on veut que le resultat soit recuperable sous forme d'objet  
@@ -112,13 +144,43 @@ function lister_csv()
         $jeuResultat->closeCursor();   // fermer le jeu de r�sultat
         // deconnecterServeurBD($idConnexion);
         return $info;
+    // echo $requete;
 
 
   }
+  function lister_csv_byuser_conf($id)
+  {
+      $connect = get_pdo();
+      $requete = "SELECT * from test where  id_c = 2 ;";
+      $jeuResultat=$connect->query($requete); // on va chercher tous les membres de la table qu'on trie par ordre croissant
+  
+          $jeuResultat->setFetchMode(PDO::FETCH_OBJ); // on dit qu'on veut que le resultat soit recuperable sous forme d'objet  
+          $i = 0;
+  
+          $ligne = $jeuResultat->fetch();
+          while($ligne)
+          {
+  
+              $info[$i]['ID']=$ligne->id;
+              $info[$i]['Nom']=$ligne->Nom;
+              $info[$i]['Proprio']=$ligne->proprio;
+              $info[$i]['Energie']=$ligne->energie;
+  
+              $ligne=$jeuResultat->fetch();
+              $i = $i + 1;
+  
+          }
+          $jeuResultat->closeCursor();   // fermer le jeu de r�sultat
+          // deconnecterServeurBD($idConnexion);
+          return $info;
+      // echo $requete;
+  
+  
+    }
   function liste_user()
   {
     $connect = get_pdo();
-    $requete = "SELECT u.* ,t.nom_t from user u inner join `type-user` t on u.id_type = t.id ;";
+    $requete = "SELECT u.* ,t.nom_t from user u inner join `type_user` t on u.id_type = t.id ;";
     $jeuResultat=$connect->query($requete); // on va chercher tous les membres de la table qu'on trie par ordre croissant
 
         $jeuResultat->setFetchMode(PDO::FETCH_OBJ); // on dit qu'on veut que le resultat soit recuperable sous forme d'objet  
@@ -142,10 +204,11 @@ function lister_csv()
         return $info;
 
   }
+  
   function liste_type_user()
   {
     $connect = get_pdo();
-    $requete = "SELECT * from `type-user` ;";
+    $requete = "SELECT * from `type_user` ;";
     $jeuResultat=$connect->query($requete); // on va chercher tous les membres de la table qu'on trie par ordre croissant
 
         $jeuResultat->setFetchMode(PDO::FETCH_OBJ); // on dit qu'on veut que le resultat soit recuperable sous forme d'objet  
@@ -192,16 +255,16 @@ function lister_csv()
     $ok=$connect->query($requete);
    
   }
-  function add_fiche2($nom,$email,$phone,$cp,$ad,$ville,$id,$sit,$agem,$ageme,$enfants,$num_f,$pro_mme,$pro_mr,$ref,$date_p,$conso,$age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r)
+  function add_fiche2($nom,$email,$phone,$cp,$ad,$ville,$id,$sit,$agem,$ageme,$enfants,$num_f,$pro_mme,$pro_mr,$ref,$date_p,$conso,$age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r,$stat)
   {
     $connect = get_pdo();
     $requete="INSERT INTO fiche (id_l,nom_f,email,phone,adresse,ville,cp,situation_f,
     age_mr,age_mme,enfants,num_f,pro_mr,pro_mme,ref,
-    date_p,conso,age_c,superficie,mode_c,planchet_c,age_m,mat_r)
+    date_p,conso,age_c,superficie,mode_c,planchet_c,age_m,mat_r,stat)
      VALUE
     ($id,'".$nom."','".$email."','".$phone."','".$ad."',
     '".$ville."',$cp,'".$sit."',$agem,$ageme,$enfants,$num_f,
-    '".$pro_mr."','".$pro_mme."',$ref,'".$date_p."','".$conso."',$age_c,$sup,'".$mode_c."','".$planchet_c."',$age_m,'".$mat_r."');";
+    '".$pro_mr."','".$pro_mme."',$ref,'".$date_p."','".$conso."',$age_c,$sup,'".$mode_c."','".$planchet_c."',$age_m,'".$mat_r."',$stat);";
     $ok=$connect->query($requete);
     // echo $requete;
     
@@ -263,6 +326,7 @@ function lister_csv()
             $info[$i]['planchet_c']=$ligne->planchet_c;
             $info[$i]['age_m']=$ligne->age_m;
             $info[$i]['mat_r']=$ligne->mat_r;
+            $info[$i]['stat']=$ligne->stat;
          
 
 
@@ -279,7 +343,7 @@ function lister_csv()
   }
   function   update_fiche2($nom,$email,$phone,$cp,$ad,$ville,$idd,$sit,
   $agem,$ageme,$enfants,$num_f,$pro_mr,$pro_mme,$ref,$date_p,$conso,
-  $age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r)
+  $age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r,$stat)
   {
     $connect = get_pdo();
     $requete="UPDATE fiche set nom_f = '".$nom."',email = '".$email."',
@@ -287,11 +351,26 @@ function lister_csv()
     situation_f='".$sit."', age_mr = $agem,age_mme = $ageme, enfants=$enfants,
     num_f=$num_f,pro_mr='".$pro_mr."',pro_mme='".$pro_mme."',ref=$ref,date_p='".$date_p."',
     conso = '".$conso."',age_c = $age_c,superficie=$sup,mode_c='".$mode_c."',
-    planchet_c = '".$planchet_c."',age_m=$age_m,mat_r='".$mat_r."'
+    planchet_c = '".$planchet_c."',age_m=$age_m,mat_r='".$mat_r."',stat=$stat
      where id_l = $idd ;";
     $ok=$connect->query($requete);
     echo $requete;
-    
+  }
+  function tele_confir($id)
+  {
+    $connect = get_pdo();
+    $requete="UPDATE test set id_c = 2 where id = $id;";
+    $ok=$connect->query($requete);
+
+  }
+  function count_leads_user($id)
+  {
+    $connect = get_pdo();
+    $sql = "select COUNT(id) from test where id_user = $id;";
+    $ok = $connect->query($sql);
+    $donnees = $ok->fetch();
+    return $donnees;
+
   }
 
 

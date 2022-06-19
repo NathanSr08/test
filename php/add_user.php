@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(isset($_SESSION['id']) and $_SESSION['role']!="ADMIN")
+{
+    header('Location:../aganda.php?er=1');die;
+}
+
 
 if(count($_POST)>=2)
 {

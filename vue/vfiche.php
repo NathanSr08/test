@@ -169,6 +169,47 @@
       <input type="password" class="form-control" id="exampleInputPassword1">
     </div> -->
     </div>
+    <div class="container">
+        <div class="container">
+            <div class="container">
+                <div class="container">
+                    <br>
+                
+                    <div class="alert alert-secondary" role="alert" style="text-align:center;">
+Etats: 
+</div>
+                </div>
+            </div>
+       
+        </div>
+    </div>
+    <fieldset class="form-group">
+      <legend class="mt-4">Dossier :</legend>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="stat" id="optionsRadios1" value="1" <?php if(isset($f[0]['stat'])){ if($f[0]['stat']==1){ ?> checked="" <?php } } ?>>
+        Validé 
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="stat" id="optionsRadios2" value="2"  <?php if(isset($f[0]['stat'])){ if($f[0]['stat']==2){  echo 'checked=""';  } } ?>>
+        Refusé
+        </label>
+      </div>
+      <div class="form-check disabled">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="stat" id="optionsRadios3" value="3" <?php if(isset($f[0]['stat'])){ if($f[0]['stat']==3){  echo 'checked=""';  } } ?>>
+      En Attente
+        </label>
+      </div>
+    </fieldset>
+   
+    <div class="form-group">
+      <label for="exampleTextarea" class="form-label mt-4">Commentaire</label>
+      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    </div>
+ 
     <br>
     <button type="submite" class="btn btn-success">Success</button>
 

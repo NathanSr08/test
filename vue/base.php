@@ -26,12 +26,13 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Leads</a>
           <div class="dropdown-menu">
+            <?php if($_SESSION['role']=="ADMIN") { ?>
             <a class="dropdown-item" href="../php/add_csv.php">Ajouter</a>
-            <a class="dropdown-item" href="../php/my_leads.php">Mes leads</a>
             <a class="dropdown-item" href="../php/liste_csv.php">lister all</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
+            <?php } ?>
+            <a class="dropdown-item" href="../php/my_leads.php">Mes leads</a>
+           
+         
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Users</a>

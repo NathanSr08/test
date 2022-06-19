@@ -1,4 +1,9 @@
 <?php 
+session_start();
+if(isset($_SESSION['id']) and $_SESSION['role']!="ADMIN")
+{
+    header('Location:../aganda.php?er=1');
+}
 function EXPORT_TABLES($host,$user,$pass,$name,  $tables=false, $backup_name=false ){
     $mysqli = new mysqli($host,$user,$pass,$name); $mysqli->select_db($name); $mysqli->query("SET NAMES 'utf8'");
     $queryTables = $mysqli->query('SHOW TABLES'); while($row = $queryTables->fetch_row()) { $target_tables[] = $row[0]; }   if($tables !== false) { $target_tables = array_intersect( $target_tables, $tables); }
@@ -19,5 +24,5 @@ function EXPORT_TABLES($host,$user,$pass,$name,  $tables=false, $backup_name=fal
     $backup_name = $backup_name ? $backup_name : $name."___(".date('H-i-s')."_".date('d-m-Y').")__rand".rand(1,11111111).".sql";
     header('Content-Type: application/octet-stream');   header("Content-Transfer-Encoding: Binary"); header("Content-disposition: attachment; filename=\"".$backup_name."\"");  echo $content; exit;
     }
-EXPORT_TABLES("172.18.0.3","root","password","aganda"); 
+EXPORT_TABLES("172.18.0.4","root","password","aganda"); 
 ?>

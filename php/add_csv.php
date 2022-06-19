@@ -2,7 +2,10 @@
 <?php
 require('../vue/base.php');
 include('../class/bdd.php');
-
+if(isset($_SESSION['id']) and $_SESSION['role']!="ADMIN")
+{
+    header('Location:../aganda.php?er=1');
+}
 if(isset($_POST['import']))
 {
     $FileName =  $_FILES['test']['tmp_name'];

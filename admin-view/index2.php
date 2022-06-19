@@ -1,4 +1,4 @@
-<?php   include('base.php');  ?>
+<?php include('base.php'); include('../class/bdd.php'); $id = $_SESSION['id']; ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -39,8 +39,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                               <a href="php/my_leads.php">Mes Leads</a>  </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php  $a = count_leads_user($id); echo $a["COUNT(id)"]; ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>

@@ -12,24 +12,25 @@ public function __construct(\PDO $pdo)
         $stat = $this->pdo->prepare("insert into user (`name`,`mdp`,`role`,`id_type`) VALUES ('".$nom."','".$mdp."','USER',$id_t)");
         $stat->execute();
     }
-    public function connect($id,$nom,$role)
+    public function connect($id,$nom,$role,$fonc)
     {
         session_start();
         $_SESSION["id"] = $id;
         $_SESSION["login"] = $nom;
         $_SESSION["role"] = $role;
+        $_SESSION["fonction"] = $fonc;
     }
     public function verif_login($nom,$mdp)
     {
         $sql = "SELECT * from user where name = '".$nom."' and mdp = '".$mdp."' LIMIT 1";
-        $result =  $this->pdo->query("SELECT * from user where name = '".$nom."' and mdp = '".$mdp."' LIMIT 1")->fetch();
+        $result =  $this->pdo->query("SELECT u.*,t.nom_t from user u inner join type_user t on t.id = u.id_type where name = '".$nom."' and mdp = '".$mdp."' LIMIT 1")->fetch();
         
      
      
         if($result)
         {
            
-            $this->connect($result['id'],$result['name'],$result['role']);
+            $this->connect($result['id'],$result['name'],$result['role'],$result['nom_t']);
             return 0;
 
         }

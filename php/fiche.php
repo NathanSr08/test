@@ -36,6 +36,12 @@ if($test==0)
         $planchet_c = $_POST['planchet_c'];
         $age_m = $_POST['age_m'];
         $mat_r = $_POST['mat_r'];
+        $stat =  $_POST['stat'];
+        if($stat==1)
+        {
+            tele_confir($idd);
+        }
+
         if($age_m=='')
         {
             $age_m=0;
@@ -74,7 +80,7 @@ if($test==0)
             $num_f=0;
         }
         update_fiche2($nom,$email,$phone,$cp,$ad,$ville,$idd,$sit,$agem,$ageme,$enfants,$num_f,$pro_mr,$pro_mme,$ref,$date_p,$conso,
-        $age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r);
+        $age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r,$stat);
         header('Location:my_leads.php');
     }
    
@@ -84,7 +90,15 @@ else
 {
     if(count($_POST)<5)
     {
+    if($_SESSION['role']=="ADMIN")
+    {
+        $f = get_one_csv_Admin($idd);
+    }
+    else
+    {
         $f = get_one_csv($id,$idd);
+    }
+       
         include('../vue/vfiche.php');
     }   
     else
@@ -108,6 +122,7 @@ else
         $planchet_c = $_POST['planchet_c'];
         $age_m = $_POST['age_m'];
         $mat_r = $_POST['mat_r'];
+        $stat = $_POST['stat'];
         if($age_m=='')
         {
             $age_m=0;
@@ -147,7 +162,7 @@ else
             $num_f=0;
         }
         add_fiche2($nom,$email,$phone,$cp,$ad,$ville,$idd,$sit,$agem,$ageme,$enfants,$num_f,$pro_mr,$pro_mme,$ref,$date_p,$conso,
-        $age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r);
+        $age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r,$stat);
         header('Location:my_leads.php');
     }
 }

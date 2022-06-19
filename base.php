@@ -26,16 +26,23 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Leads</a>
           <div class="dropdown-menu">
+          <?php if($_SESSION['role']=="ADMIN") { ?>
             <a class="dropdown-item" href="php/add_csv.php">Ajouter</a>
-            <a class="dropdown-item" href="php/my_leads.php">Mes leads</a>
             <a class="dropdown-item" href="php/liste_csv.php">lister all</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
+            <?php } ?>
+            <a class="dropdown-item" href="php/my_leads.php">Mes leads</a>
+        
+           
         </li>
-      <a class="nav-item nav-link active" href="../php/add_user.php">Add user</span></a>
-      <a class="nav-item nav-link active" href="../php/lister_user.php">View users</span></a>
-
+        <?php if($_SESSION['role']=="ADMIN") { ?>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Users</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../php/add_user.php">Ajouter</a>
+            <a class="dropdown-item" href="../php/lister_user.php">View all</a>
+           
+        </li>
+  <?php } ?>
       <?php } ?>
       <?php if(isset($_SESSION['id'])) { ?>
       <a class="nav-item nav-link" href="../php/logout.php">logout</a>

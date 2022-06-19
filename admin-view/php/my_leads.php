@@ -1,6 +1,7 @@
-<?php
-include('../vue/base.php');
-include('../class/bdd.php');
+<?php 
+
+include('../../class/bdd.php');
+include('base.php');
 $id = $_SESSION['id'];
 // echo $_SESSION['fonction'];
 if($_SESSION['fonction']=="Confirmateur")
@@ -12,4 +13,5 @@ if($_SESSION['fonction']=="Confirmateur")
     $cl = lister_csv_byuser($id);
  }
 
-include('../vue/vlister.php');
+include('../vue/vliste_leads.php');
+?>
