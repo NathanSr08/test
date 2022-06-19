@@ -91,34 +91,34 @@
     <div class="col-sm">
     <div class="form-group">
       <label for="exampleInputPassword1" class="form-label mt-4">Propriétaire depuis :</label>
-      <input type="date" class="form-control" id="exampleInputPassword1" >
+      <input type="date" class="form-control" id="exampleInputPassword1" name="date_p" value="<?php if(isset($f[0]['date_p']))  { echo $f[0]['date_p']; }?>">
       <label for="exampleInputPassword1" class="form-label mt-4">Consomation:</label>
       <input type="text" class="form-control" name="conso" id="exampleInputPassword1" value="<?php echo $f[0]['Conso']; ?>" >
     </div> <div class="form-group">
       <label for="exampleInputPassword1" class="form-label mt-4">Age Chaudiere</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" >
+      <input type="text" class="form-control" id="exampleInputPassword1" name="age_c" value="<?php if(isset($f[0]['age_c']))  { echo $f[0]['age_c']; }?>">
     </div> 
     </div>
     <div class="col-sm">
     <div class="form-group">
       <label for="exampleInputPassword1" class="form-label mt-4">Superficie</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" >
+      <input type="text" class="form-control" id="exampleInputPassword1" name="sup" value="<?php if(isset($f[0]['sup']))  { echo $f[0]['sup']; }?>">
     </div> <div class="form-group">
       <label for="exampleInputPassword1" class="form-label mt-4">Mode de chauffage</label>
-      <input type="text" class="form-control" id="exampleInputPassword1" value="<?php echo $f[0]['mode_c']; ?>" >
+      <input type="text" class="form-control" id="exampleInputPassword1" name="mode_c" value="<?php echo $f[0]['mode_c']; ?>" >
     </div> <div class="form-group">
       <label for="exampleInputPassword1" class="form-label mt-4">Planchet chauffant</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <input type="text" class="form-control" id="exampleInputPassword1" name="planchet_c" value="<?php if(isset($f[0]['planchet_c']))  { echo $f[0]['planchet_c']; }?>">
     </div>
  
     </div>
     <div class="col-sm">
     <div class="form-group">
       <label for="exampleInputPassword1" class="form-label mt-4">Age de la maison:</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <input type="text" class="form-control" id="exampleInputPassword1" name="age_m" value="<?php if(isset($f[0]['age_m']))  { echo $f[0]['age_m']; }?>" >
     </div> <div class="form-group">
       <label for="exampleInputPassword1" class="form-label mt-4">Materiaux Radiateur</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <input type="text" class="form-control" id="exampleInputPassword1" name="mat_r" value="<?php if(isset($f[0]['mat_r']))  { echo $f[0]['mat_r']; }?>">
     </div> 
     </div>
     <!-- <div class="container">

@@ -28,6 +28,27 @@ if($test==0)
         $pro_mr = $_POST['pro_mr'];
         $pro_mme = $_POST['pro_mme'];
         $ref = $_POST['ref'];
+        $date_p = $_POST['date_p'];
+        $conso = $_POST['conso'];
+        $age_c = $_POST['age_c'];
+        $sup = $_POST['sup'];
+        $mode_c = $_POST['mode_c'];
+        $planchet_c = $_POST['planchet_c'];
+        $age_m = $_POST['age_m'];
+        $mat_r = $_POST['mat_r'];
+        if($age_m=='')
+        {
+            $age_m=0;
+        }
+        if($sup=='')
+        {
+            $sup=0;
+        }
+        if($age_c=='')
+        {
+            $age_c=0;
+        }
+
         if(($ref)=='')
         {
             $ref=0;
@@ -52,7 +73,8 @@ if($test==0)
         {
             $num_f=0;
         }
-        update_fiche2($nom,$email,$phone,$cp,$ad,$ville,$idd,$sit,$agem,$ageme,$enfants,$num_f,$pro_mr,$pro_mme,$ref);
+        update_fiche2($nom,$email,$phone,$cp,$ad,$ville,$idd,$sit,$agem,$ageme,$enfants,$num_f,$pro_mr,$pro_mme,$ref,$date_p,$conso,
+        $age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r);
         header('Location:my_leads.php');
     }
    
@@ -78,32 +100,54 @@ else
         $pro_mr = $_POST['pro_mr'];
         $pro_mme = $_POST['pro_mme'];
         $ref = $_POST['ref'];
-        if(!isset($ref))
+        $date_p = $_POST['date_p'];
+        $conso = $_POST['conso'];
+        $age_c = $_POST['age_c'];
+        $sup = $_POST['sup'];
+        $mode_c = $_POST['mode_c'];
+        $planchet_c = $_POST['planchet_c'];
+        $age_m = $_POST['age_m'];
+        $mat_r = $_POST['mat_r'];
+        if($age_m=='')
+        {
+            $age_m=0;
+        }
+        if($sup=='')
+        {
+            $sup=0;
+        }
+        if($age_c=='')
+        {
+            $age_c=0;
+        }
+
+        if(($ref)=='')
         {
             $ref=0;
         }
         $agem = $_POST['age_mr'];
   
-        if(!isset($agem))
+        if(($agem)=='')
         {
             $agem = 0;
         }
         $ageme = $_POST['age_mme'];
-        if(!isset($ageme))
+        if(($ageme)=='')
         {
             $ageme = 0;
         }
         $enfants = $_POST['enfants'];
-        if(!isset($enfants))
+        if(($enfants)=='')
         {
             $enfants=0;
         }
         $num_f = $_POST['num_f'];
-        if(!isset($num_f))
+        if(($num_f)=='')
         {
             $num_f=0;
         }
-        add_fiche2($nom,$email,$phone,$cp,$ad,$ville,$idd,$sit,$agem,$ageme,$enfants,$num_f,$pro_mr,$pro_mme,$ref);
+        add_fiche2($nom,$email,$phone,$cp,$ad,$ville,$idd,$sit,$agem,$ageme,$enfants,$num_f,$pro_mr,$pro_mme,$ref,$date_p,$conso,
+        $age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r);
         header('Location:my_leads.php');
     }
 }

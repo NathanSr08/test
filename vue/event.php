@@ -2,6 +2,8 @@
 
 <?php
 include('base.php');
+include('../class/bdd.php');
+include('../class/event.php');
 $pdo = get_pdo();
 $events = new App\Date\Events($pdo);
 

@@ -201,8 +201,9 @@ function lister_csv()
      VALUE
     ($id,'".$nom."','".$email."','".$phone."','".$ad."',
     '".$ville."',$cp,'".$sit."',$agem,$ageme,$enfants,$num_f,
-    '".$pro_mr."','".$pro_mme."',$ref,'".$date_p."','".$comso."',$age_c,$sup,'".$mode_c."','".$planchet_c."',$age_m,'".$mat_r."');";
+    '".$pro_mr."','".$pro_mme."',$ref,'".$date_p."','".$conso."',$age_c,$sup,'".$mode_c."','".$planchet_c."',$age_m,'".$mat_r."');";
     $ok=$connect->query($requete);
+    // echo $requete;
     
   }
   function verif_fiche($id)
@@ -254,7 +255,7 @@ function lister_csv()
             $info[$i]['ref']=$ligne->ref;
             //a
             $info[$i]['date_p']=$ligne->date_p;
-            $info[$i]['conso']=$ligne->conso;
+            $info[$i]['Conso']=$ligne->conso;
             $info[$i]['age_c']=$ligne->age_c;
             $info[$i]['sup']=$ligne->superficie;
             $info[$i]['mode_c']=$ligne->mode_c;
@@ -285,7 +286,7 @@ function lister_csv()
     phone='".$phone."',adresse='".$ad."',ville='".$ville."',cp=$cp,
     situation_f='".$sit."', age_mr = $agem,age_mme = $ageme, enfants=$enfants,
     num_f=$num_f,pro_mr='".$pro_mr."',pro_mme='".$pro_mme."',ref=$ref,date_p='".$date_p."',
-    conso = '".$conso."',age_c = $age_c,superficie=$superficie,mode_c='".$mode_c."',
+    conso = '".$conso."',age_c = $age_c,superficie=$sup,mode_c='".$mode_c."',
     planchet_c = '".$planchet_c."',age_m=$age_m,mat_r='".$mat_r."'
      where id_l = $idd ;";
     $ok=$connect->query($requete);
