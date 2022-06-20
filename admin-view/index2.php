@@ -1,4 +1,8 @@
-<?php include('base.php'); include('../class/bdd.php'); $id = $_SESSION['id']; ?>
+<?php
+
+// if(!isset($_SESSION['id'])){ header('Location:index.php'); }
+
+include('base.php'); include('../class/bdd.php'); $id = $_SESSION['id']; ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->

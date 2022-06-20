@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>SB Admin 222 - Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <link rel="stylesheet" href="../asset/main.css">
     <!-- Custom fonts for this template-->
@@ -46,7 +46,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboardddd</span></a>
             </li>
 
             <!-- Divider -->
@@ -67,9 +67,10 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header"></h6>
-                        <a class="collapse-item" href="buttons.html">Add</a>
-                        <a class="collapse-item" href="buttons.html">View All</a>
-                        <a class="collapse-item" href="cards.html">View leads libre</a>
+                        <a class="collapse-item" href="php/add_csv.php">Add</a>
+                        <a class="collapse-item" href="my_leads.php">Mes leads</a>
+                        <a class="collapse-item" href="php/all_csv.php">View All</a>
+                        <a class="collapse-item" href="php/csv_libre.php">View leads libre</a>
                     </div>
                 </div>
             </li>
@@ -352,7 +353,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="../php/logout.php" >
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>

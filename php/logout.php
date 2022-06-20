@@ -5,5 +5,5 @@ $pdo = get_pdo();
 $user = new App\Date\User($pdo);
 $user = $user->logout();
 session_destroy();
-header('Location:../aganda.php');
+header('Location:../admin-view/');
 ?>
