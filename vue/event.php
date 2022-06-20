@@ -36,12 +36,12 @@ else
    
     <div class="form-group">
       <label for="exampleInputEmail1" class="form-label mt-4">Nom :</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nom"value="<?php echo $event["name"];?>">
+      <input type="text" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="nom"value="<?php echo $event["name"];?>">
      
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1" class="form-label mt-4">Debut :</label>
-      <input type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp "   name="start" value="<?php echo (new DateTime($event["start"]))->format('H:i');?>">
+      <input type="time" class="form-control" id="exampleInputEmail1" required  aria-describedby="emailHelp "   name="start" value="<?php echo (new DateTime($event["start"]))->format('H:i');?>">
      
     </div>
 
@@ -50,17 +50,17 @@ else
     <div class="col">
     <div class="form-group">
       <label for="exampleInputEmail1" class="form-label mt-4">Date :</label>
-      <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="date" value="<?php echo (new DateTime($event["start"]))->format('Y-m-d');?>">
+      <input type="date" class="form-control" id="exampleInputEmail1" required  aria-describedby="emailHelp"  name="date" value="<?php echo (new DateTime($event["start"]))->format('Y-m-d');?>">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1" class="form-label mt-4" >Fin :</label>
-      <input type="time" class="form-control" id="exampleInputEmail1"  name="end" aria-describedby="emailHelp"  value="<?php echo (new DateTime($event["end"]))->format('H:i');?>">
+      <input type="time" class="form-control" id="exampleInputEmail1" required   name="end" aria-describedby="emailHelp"  value="<?php echo (new DateTime($event["end"]))->format('H:i');?>">
      
     </div>
 </div>
 <div class="form-group">
       <label for="exampleInputPassword1" class="form-label mt-4 " >Description</label>
-      <textarea type="text" class="form-control" name="des" rows="4" value="<?php echo h($event["description"]);?>"><?php echo h($event["description"]);?></textarea>
+      <textarea type="text" class="form-control" name="des" rows="4" required  value="<?php echo h($event["description"]);?>"><?php echo h($event["description"]);?></textarea>
     </div>
 </div>
 <br>

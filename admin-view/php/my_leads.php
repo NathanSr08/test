@@ -1,7 +1,8 @@
 <?php 
-
-include('../../class/bdd.php');
 include('base.php');
+include('js.php');
+include('../../class/bdd.php');
+
 $id = $_SESSION['id'];
 // echo $_SESSION['fonction'];
 if($_SESSION['fonction']=="Confirmateur")

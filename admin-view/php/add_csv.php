@@ -2,10 +2,10 @@
 include('base.php');
 include('js.php');
 include('../../class/bdd.php');
-if(isset($_SESSION['id']) and $_SESSION['role']!="ADMIN")
-{
-    header('Location:../../aganda.php?er=1');
-}
+// if(isset($_SESSION['id']) and $_SESSION['role']!="ADMIN")
+// {
+//     header('Location:../../aganda.php?er=1');
+// }
 if(isset($_POST['import']))
 {
     $FileName =  $_FILES['test']['tmp_name'];
@@ -37,7 +37,8 @@ if(isset($_POST['import']))
             $u = $_SESSION['login'];
             sendtelegram($u.'a rajouter un fichier csv  !');
               ?><div class="alert alert-success" role="alert">
-             Importation Reussi Vous pouvez la voir sur le lien suivant: <a href=" http://192.168.1.15:8080/index.php?route=/sql&server=1&db=lab-csv&table=test&pos=0" target="_blank">phpmyadmin</a>
+             <!-- Importation Reussi Vous pouvez la voir sur le lien suivant: <a href=" http://192.168.1.15:8080/index.php?route=/sql&server=1&db=lab-csv&table=test&pos=0" target="_blank">phpmyadmin</a> -->
+             Importation Réussi
             </div><?php
             include('../vue/vimport.php');
            }
