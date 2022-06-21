@@ -1,6 +1,6 @@
 <?php
-
-// if(!isset($_SESSION['id'])){ header('Location:index.php'); }
+session_start();
+if(!isset($_SESSION['id'])){ header('Location:index.php'); }
 
 include('base.php'); include('../class/bdd.php'); $id = $_SESSION['id']; ?>
                 <!-- End of Topbar -->
@@ -25,7 +25,7 @@ include('base.php'); include('../class/bdd.php'); $id = $_SESSION['id']; ?>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            <a href="../../aganda.php">  Mes Rendez-vous</a>  </div>
+                                            <a href="php/aganda.php">  Mes Rendez-vous</a>  </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                         </div>
                                         <div class="col-auto">
@@ -44,13 +44,13 @@ include('base.php'); include('../class/bdd.php'); $id = $_SESSION['id']; ?>
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                <a href="php/my_leads.php">Mes Leads</a>  </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php  $a = count_leads_user($id); echo $a["COUNT(id)"]; ?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php   if($_SESSION['fonction']=="Confirmateur"){ $a = count_leads_user_conf(); echo $a["COUNT(id)"]; } else {  $a = count_leads_user($id); echo $a["COUNT(id)"]; }?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
-                                </div>
+                                </div>  
                             </div>
                         </div>
                         <div class="col-xl-3 col-md-6 mb-4">
@@ -104,7 +104,7 @@ include('base.php'); include('../class/bdd.php'); $id = $_SESSION['id']; ?>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                               <a href="php/all_csv.php">Leads Non Attribués</a>  </div>
+                                               <a href="php/csv_libre.php">Leads Non Attribués</a>  </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php  $a = count_leads_free(); echo $a["COUNT(id)"]; ?></div>
                                         </div>
                                         <div class="col-auto">

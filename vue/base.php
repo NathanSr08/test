@@ -41,7 +41,7 @@
             <a class="dropdown-item" href="../php/lister_user.php">View all</a>
            
         </li>
-   
+        <a class="nav-item nav-link" href="../../admin-view/index2.php">Dashboard</a>
 
       <?php } ?>
       <?php if(isset($_SESSION['id'])) { ?>

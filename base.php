@@ -38,10 +38,11 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Users</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="../php/add_user.php">Ajouter</a>
+            <a class="dropdown-item" href="../php/add_user.php">Ajouterr</a>
             <a class="dropdown-item" href="../php/lister_user.php">View all</a>
            
         </li>
+        <a class="nav-item nav-link" href="../../admin-view/index2.php">Dashboard</a>
   <?php } ?>
       <?php } ?>
       <?php if(isset($_SESSION['id'])) { ?>

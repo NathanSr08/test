@@ -3,7 +3,7 @@
 function get_fiche($idd)
   {
     $connect = get_pdo();
-    $requete = "SELECT * from fiche where id = $idd;";
+    $requete = "SELECT * from fiche where id_l = $idd;";
     $jeuResultat=$connect->query($requete); // on va chercher tous les membres de la table qu'on trie par ordre croissant
 
         $jeuResultat->setFetchMode(PDO::FETCH_OBJ); // on dit qu'on veut que le resultat soit recuperable sous forme d'objet  
@@ -39,6 +39,7 @@ function get_fiche($idd)
             $info[$i]['age_m']=$ligne->age_m;
             $info[$i]['mat_r']=$ligne->mat_r;
             $info[$i]['stat']=$ligne->stat;
+            $info[$i]['com']=$ligne->commentaire;
          
 
 
@@ -56,7 +57,7 @@ function get_fiche($idd)
 
   function   update_fiche2($nom,$email,$phone,$cp,$ad,$ville,$idd,$sit,
   $agem,$ageme,$enfants,$num_f,$pro_mr,$pro_mme,$ref,$date_p,$conso,
-  $age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r,$stat)
+  $age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r,$stat,$com)
   {
     $connect = get_pdo();
     $requete="UPDATE fiche set nom_f = '".$nom."',email = '".$email."',
@@ -64,7 +65,7 @@ function get_fiche($idd)
     situation_f='".$sit."', age_mr = $agem,age_mme = $ageme, enfants=$enfants,
     num_f=$num_f,pro_mr='".$pro_mr."',pro_mme='".$pro_mme."',ref=$ref,date_p='".$date_p."',
     conso = '".$conso."',age_c = $age_c,superficie=$sup,mode_c='".$mode_c."',
-    planchet_c = '".$planchet_c."',age_m=$age_m,mat_r='".$mat_r."',stat=$stat
+    planchet_c = '".$planchet_c."',age_m=$age_m,mat_r='".$mat_r."',stat=$stat,commentaire='".$com."'
      where id_l = $idd ;";
     $ok=$connect->query($requete);
     // echo $requete;
@@ -90,16 +91,16 @@ function get_fiche($idd)
     }
   }
 
-  function add_fiche2($nom,$email,$phone,$cp,$ad,$ville,$id,$sit,$agem,$ageme,$enfants,$num_f,$pro_mme,$pro_mr,$ref,$date_p,$conso,$age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r,$stat)
+  function add_fiche2($nom,$email,$phone,$cp,$ad,$ville,$id,$sit,$agem,$ageme,$enfants,$num_f,$pro_mme,$pro_mr,$ref,$date_p,$conso,$age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r,$stat,$com)
   {
     $connect = get_pdo();
     $requete="INSERT INTO fiche (id_l,nom_f,email,phone,adresse,ville,cp,situation_f,
     age_mr,age_mme,enfants,num_f,pro_mr,pro_mme,ref,
-    date_p,conso,age_c,superficie,mode_c,planchet_c,age_m,mat_r,stat)
+    date_p,conso,age_c,superficie,mode_c,planchet_c,age_m,mat_r,stat,commentaire)
      VALUE
     ($id,'".$nom."','".$email."','".$phone."','".$ad."',
     '".$ville."',$cp,'".$sit."',$agem,$ageme,$enfants,$num_f,
-    '".$pro_mr."','".$pro_mme."',$ref,'".$date_p."','".$conso."',$age_c,$sup,'".$mode_c."','".$planchet_c."',$age_m,'".$mat_r."',$stat);";
+    '".$pro_mr."','".$pro_mme."',$ref,'".$date_p."','".$conso."',$age_c,$sup,'".$mode_c."','".$planchet_c."',$age_m,'".$mat_r."',$stat,'".$com."');";
     $ok=$connect->query($requete);
     // echo $requete;
     

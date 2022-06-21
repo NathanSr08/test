@@ -131,6 +131,10 @@ function lister_csv_byuser($id)
 
         }
         $jeuResultat->closeCursor();   // fermer le jeu de r�sultat
+        if(!isset($info))
+        {
+            $info = 1;
+        }
         // deconnecterServeurBD($idConnexion);
         return $info;
     // echo $requete;

@@ -1,20 +1,7 @@
 
-<?php
-include('base2.php');
-?>
-<link rel="stylesheet" href="asset/css/main.css"> <?php
-if(isset($_SESSION['login'])) {  $id_c = $_SESSION['id']; include('class/Mounth.php');include('class/event.php');
-  if(isset($_GET['er']))
-  {
-    if($_GET['er']==1)
-    {
-      ?>
-      <div class="alert alert-danger" role="alert">
- Accées refusé!
-</div>
-<?php
-    }
-  }
+<link rel="stylesheet" href="../../asset/css/main.css">
+ <?php
+
 
 try{
 $mount = new App\Date\Mounth($_GET['mois'] ?? null, $_GET['year'] ?? null);
@@ -29,7 +16,7 @@ $start = $mount->getFirstDay();
 $start = $start->format('N') === '1' ? $start:  $mount->getFirstDay()->modify('last monday');
 $sem = $mount->getweeks();
 $end = (clone $start)->modify('+' . (6 + (7 * ($sem - 1))).' days');
-require('class/bdd.php');
+
 $pdo = get_pdo();
   $events = new App\Date\Events($pdo);
   if($_SESSION['role']=='USER')
@@ -107,6 +94,3 @@ $pdo = get_pdo();
 </div>
 </body>
 </html>
-<?php } else{
-  header('Location:index.php');
-} ?>

@@ -11,6 +11,15 @@ function count_leads_user($id)
     return $donnees;
 
   }
+  function count_leads_user_conf()
+  {
+    $connect = get_pdo();
+    $sql = "select COUNT(id) from test where id_c = 2;";
+    $ok = $connect->query($sql);
+    $donnees = $ok->fetch();
+    return $donnees;
+
+  }
   function count_leads_all()
   {
     $connect = get_pdo();

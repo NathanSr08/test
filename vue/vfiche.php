@@ -30,7 +30,7 @@
       <input type="text" class="form-control" id="exampleInputPassword1" name="age_mr" value="<?php if(isset($f[0]['age_mr']))  { echo $f[0]['age_mr']; }?>">
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1" class="form-label mt-4">Proffesion Mme</label>
+       <label for="exampleInputPassword1" class="form-label mt-4">Proffesion Mme</label>
       <input type="text" class="form-control" id="exampleInputPassword1" name="pro_mme" value="<?php if(isset($f[0]['pro_mme']))  { echo $f[0]['pro_mme']; }?>">
     </div>
     </div>
