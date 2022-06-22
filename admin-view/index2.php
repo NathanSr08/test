@@ -1,6 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['id'])){ header('Location:index.php'); }
+    
 
 include('base.php'); include('../class/bdd.php'); $id = $_SESSION['id']; ?>
                 <!-- End of Topbar -->
@@ -11,8 +12,8 @@ include('base.php'); include('../class/bdd.php'); $id = $_SESSION['id']; ?>
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                ></i></a> -->
                     </div>
 
                     <!-- Content Row -->

@@ -121,18 +121,18 @@
             </li>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -275,7 +275,7 @@
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="php/logs.php">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Activity Log
                                 </a>

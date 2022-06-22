@@ -5,7 +5,7 @@
 function count_leads_user($id)
   {
     $connect = get_pdo();
-    $sql = "select COUNT(id) from test where id_user = $id;";
+    $sql = "select COUNT(id) from test where id_user = $id and id_c = 0;";
     $ok = $connect->query($sql);
     $donnees = $ok->fetch();
     return $donnees;

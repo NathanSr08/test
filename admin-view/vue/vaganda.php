@@ -47,7 +47,7 @@ $pdo = get_pdo();
 <div>
   <a href="aganda.php?mois=<?php echo $mount->precMonth()->month;?>&year=<?php echo $mount->precMonth()->year;?>"  class="btn btn-primary">&lt</a>
   <a href="aganda.php?mois=<?php echo $mount->nextMonth()->month;?>&year=<?php echo $mount->nextMonth()->year;?>"  class="btn btn-primary">&gt</a><p></p>
-  <a href="vue/Vadd_event.php"><button type="button" class="btn btn-primary">+</button></a>
+  <a href="../php/add.php"><button type="button" class="btn btn-primary">+</button></a>
 </div>
 </div>
 
@@ -71,7 +71,7 @@ $pdo = get_pdo();
     <?php foreach($eventsForDay as $event):  ?>
       <?php if($mount->verifdayinmonth($date)){
         ?>
-  <span style="text-decoration: none;" class="badge bg-dark"><div class="event" style="text-decoration:none;"><?php echo (new DateTime($event["start"]))->format('H:i') ?> - <a  href="/vue/event.php?id=<?php echo $event["id"]?>" style="text-decoration: none;"><?php echo  $event["name"] ?></a></div></span>
+  <span style="text-decoration: none;" class="badge bg-dark"><div class="event" style="text-decoration:none;"><?php echo (new DateTime($event["start"]))->format('H:i') ?> - <a  href="../php/event.php?id=<?php echo $event["id"]?>" style="text-decoration: none;"><?php echo  $event["name"] ?></a></div></span>
   <?php
        } ?>
    

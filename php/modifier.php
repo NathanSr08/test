@@ -11,7 +11,7 @@ $start = $_POST['start'];
 $end = $_POST['end'];
 
 $events = $events-> edit_event($id,$nom,$des,$date,$start,$end);
-header('Location:../index.php');
+header('Location:../admin-view/php/aganda.php');
 
 
 

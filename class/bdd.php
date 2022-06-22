@@ -11,5 +11,6 @@ function get_pdo(){
   include('Fonction/leads.php');
   include('Fonction/users.php');
   include('Fonction/autre.php');
+  include('Fonction/logs.php');
 ?>
 

@@ -89,7 +89,8 @@ if($test==0)
         }
         update_fiche2($nom,$email,$phone,$cp,$ad,$ville,$idd,$sit,$agem,$ageme,$enfants,$num_f,$pro_mr,$pro_mme,$ref,$date_p,$conso,
         $age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r,$stat,$com);
-        header('Location:all_csv.php');
+        if($_SESSION['role']=="ADMIN"){ header('Location:all_csv.php'); } else {  header('Location:my_leads.php');}
+   
         ob_end_flush();
     }
    
@@ -177,7 +178,7 @@ else
         }
         add_fiche2($nom,$email,$phone,$cp,$ad,$ville,$idd,$sit,$agem,$ageme,$enfants,$num_f,$pro_mr,$pro_mme,$ref,$date_p,$conso,
         $age_c,$sup,$mode_c,$planchet_c,$age_m,$mat_r,$stat,$com);
-        header('Location:all_csv.php');
+        if($_SESSION['role']=="ADMIN"){ header('Location:all_csv.php'); } else {  header('Location:my_leads.php');}
         ob_end_flush();
     }
 }

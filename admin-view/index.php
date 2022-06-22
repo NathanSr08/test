@@ -2,6 +2,8 @@
 session_start();
 include('../class/bdd.php');include('../class/security.php');
 if(isset($_SESSION['id'])) {  header('Location:index2.php'); }
+
+
 if(count($_POST)>0)
 {
     
@@ -14,13 +16,26 @@ if($user==0)
 {
     
     $u = $_SESSION['login'];
+   
+    $i = $_SESSION['id'];
+    $notif = "Connexion Reussi";
+    add_logs($i,$notif);
     sendtelegram($u.' s\'est connecter !');
     header('Location:index2.php');
   
 }
 else
 {
-    header('Location:vindex.php');
+    $ver = veri_login_user($nom);
+    if($ver==1)
+    {
+        $l = get_id_by_login($nom);
+        $id_login = $l[0]['ID'];
+        $notif = "Tentative de connexion échoué !";
+        add_logs($id_login,$notif);
+    }
+   
+    header('Location:index.php');
 }
 }
 else

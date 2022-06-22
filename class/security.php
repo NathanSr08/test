@@ -14,7 +14,7 @@ public function __construct(\PDO $pdo)
     }
     public function connect($id,$nom,$role,$fonc)
     {
-        session_start();
+        // session_start();
         $_SESSION["id"] = $id;
         $_SESSION["login"] = $nom;
         $_SESSION["role"] = $role;
