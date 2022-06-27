@@ -20,6 +20,7 @@
                     <th scope="col">Nom</th>
 <th scope="col">Role</th>
 <th scope="col">Fonction</th>
+<th scope="col">Statut</th>
 <th scope="col">Edit</th>
                     </tr>
                 </thead>
@@ -33,6 +34,12 @@ while($i<count($cl))
                     <td><?php echo $cl[$i]['Nom']?></td>
 <td><?php echo $cl[$i]['Role']?></td>
 <td><?php echo $cl[$i]['Fonction']?></td>
+<td><?php if($cl[$i]['Etats']=="1"){ ?><button type="button" class="btn btn-success">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"></path>
+</svg>
+                
+              </button><?php } else { ?><button type="button" class="btn btn-danger">X</button> <?php } ?></td>
 <td><a href="../php/csv_user.php?id=<?php echo $cl[$i]['ID']; ?>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
 </svg></a>&nbsp;&nbsp; <a href="../php/logs.php?id=<?php echo $cl[$i]['ID']; ?>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-pulse" viewBox="0 0 16 16">

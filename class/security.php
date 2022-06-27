@@ -19,6 +19,8 @@ public function __construct(\PDO $pdo)
         $_SESSION["login"] = $nom;
         $_SESSION["role"] = $role;
         $_SESSION["fonction"] = $fonc;
+        // $result =  $this->pdo->query("UPDATE `user` set etats = 1 where id = $id")->fetch();
+
     }
     public function verif_login($nom,$mdp)
     {
@@ -29,7 +31,11 @@ public function __construct(\PDO $pdo)
      
         if($result)
         {
-           
+            date_default_timezone_set('Europe/Paris');
+    $d = date('h:i:s');
+    $id= $result['id'];
+            $results =  $this->pdo->query("UPDATE user set etats = 1,time='".$d."' where id = $id")->fetch();
+
             $this->connect($result['id'],$result['name'],$result['role'],$result['nom_t']);
             return 0;
 

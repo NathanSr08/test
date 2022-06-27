@@ -9,12 +9,12 @@
    
     <div class="form-group">
       <label for="exampleInputEmail1" class="form-label mt-4">Nom :</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nom" placeholder="Enter Nom" required>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nom" placeholder="Enter Nom" required >
      
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1" class="form-label mt-4">Debut :</label>
-      <input type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp "   name="start"placeholder="HH:MM" required>
+      <input type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp "   name="start"placeholder="HH:MM" required >
      
     </div>
 
@@ -22,8 +22,8 @@
     </div>
     <div class="col">
     <div class="form-group">
-      <label for="exampleInputEmail1" class="form-label mt-4">Date :</label>
-      <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="date" placeholder="Enter Nom" required>
+      <label for="exampleInputEmail1" class="form-label mt-4">Date : </label>
+      <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="date" placeholder="Enter Nom" required <?php  if(isset($_GET['day'])){ if($_GET['mois']<10){ ?> value="<?php echo $_GET['year'].'-0'.$_GET['mois'].'-'.$_GET['day'] ?>" <?php } else { ?> value="<?php echo $_GET['year'].'-'.$_GET['mois'].'-'.$_GET['day'] ?>" <?php } }?>>
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1" class="form-label mt-4" >Fin :</label>

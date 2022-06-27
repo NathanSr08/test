@@ -1,7 +1,6 @@
 <?php
 ob_start();
 require('base.php');
-include('../../class/bdd.php');
 include('js.php');
 
 

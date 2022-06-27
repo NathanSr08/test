@@ -2,7 +2,6 @@
 ob_start();
 include('base.php');
 include('js.php');
-include('../../class/bdd.php');
 if(count($_POST)<=0)
 {
     include('../vue/vadd_fiche.php');

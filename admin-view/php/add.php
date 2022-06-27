@@ -1,6 +1,7 @@
 <?php
+ob_start();
 include('../../class/event.php');
-include('../../class/bdd.php');
+include('../../class/Mounth.php');
 include('base.php');
 include('js.php');
 if(count($_POST)<6)
@@ -20,9 +21,23 @@ $des = $_POST['des'];
 $date = $_POST['date'];
 $start = $_POST['start'];
 $end = $_POST['end'];
+if($start>=$end)
+{
+    ?>
+    <div class="container">
+    <div class="alert alert-danger" role="alert">
+Horaire incorrecte !
+</div>
+    </div>
+    <?php
+    include('../vue/Vadd_event.php');
+}
+else
+{
+    $events = $events-> add_event($nom,$des,$date,$start,$end,$id);
+    header('Location:aganda.php');
+}
 
-$events = $events-> add_event($nom,$des,$date,$start,$end,$id);
-header('Location:aganda.php');
 }
 
 

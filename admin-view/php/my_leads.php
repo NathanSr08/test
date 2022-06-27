@@ -1,7 +1,6 @@
 <?php 
 include('base.php');
 
-include('../../class/bdd.php');
 
 if(isset($_GET['er']))
 {

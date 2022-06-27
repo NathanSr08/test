@@ -30,26 +30,27 @@
             <!-- <div class="col-lg-7"> -->
                 <div class="p-5">
                 <div class="alert alert-secondary" role="alert" style="text-align:center;">
-Information Client <div ><?php if($_SESSION['fonction']=="Confirmateur"){ ?> Rendez-vous : <a href="../php/aganda.php"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                <?php echo $f[0]['Nom']; ?> <div ><?php if($_SESSION['fonction']=="Confirmateur"){ ?> Rendez-vous : <a href="../php/aganda.php"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
   <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
 </svg></a><?php } ?></div>
 </div>
                     <form class="user" method="post">
                   
                         <div class="form-group row">
+                       
                         <div class="row">
     <div class="col-sm">
-    <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                  name="nom" disabled="" value="<?php echo $f[0]['Nom']; ?>">
-                                    <br>
-                                    <input type="text" disabled="" class="form-control form-control-user" id="exampleFirstName" name="adresse"
-                                    placeholder="Adresse" value="<?php if(isset($f[0]['ad']))  { echo $f[0]['ad']; }?>">
-                                    <br>
+    
+                                    
+                                    <label class="form-control " id="exampleFirstName" style="text-align:center;"><?php if(isset($f[0]['ad']))  { echo $f[0]['ad']; } ?> </label> 
+
+                           
                                     <label for="">&nbsp;&nbsp; Situation Familial:</label>
-                                    <input type="text" disabled="" name="situation_f" class="form-control form-control-user" id="exampleFirstName" value="<?php if(isset($f[0]['sit']))  { echo $f[0]['sit']; }?>">
-                                    <br>
+                                    <label class="form-control " id="exampleFirstName" style="text-align:center;"><?php if(isset($f[0]['sit']))  { echo $f[0]['sit']; }?></label>
+                                    
                                     <label for="">&nbsp;&nbsp; Age Mr</label>
-                                    <input type="text" disabled="" name="age_mr" class="form-control form-control-user" id="exampleFirstName"  value="<?php if(isset($f[0]['age_mr']))  { echo $f[0]['age_mr']; }?>">
+                                    <label class="form-control " id="exampleFirstName" style="text-align:center;"><?php if(isset($f[0]['age_mr']))  { echo $f[0]['age_mr']; } ?> </label> 
+
                                     <br>
                                     <label for="">&nbsp;&nbsp; Proffesion Mme</label>
                                     <input type="text" disabled="" name="pro_mme" class="form-control form-control-user" id="exampleFirstName" value="<?php if(isset($f[0]['pro_mr']))  { echo $f[0]['pro_mme']; }?>">
@@ -58,9 +59,10 @@ Information Client <div ><?php if($_SESSION['fonction']=="Confirmateur"){ ?> Ren
     </div>
     <div class="col-sm">
     <label class="form-control " id="exampleFirstName" style="text-align:center;"><a href="mailto:<?php if(isset($f[0]['email']))  { echo $f[0]['email']; } ?>"><?php if(isset($f[0]['email']))  { echo $f[0]['email']; } ?></a> </label> 
-                                    <br>
-                                    <input type="text" class="form-control form-control-user" id="exampleFirstName" name="ville"
-                                    placeholder="Ville" disabled="" value="<?php if(isset($f[0]['ville']))  { echo $f[0]['ville']; }?>">
+                                    
+                                    <label for="">Ville</label>
+                                    <label class="form-control " id="exampleFirstName" style="text-align:center;">
+                                  <?php if(isset($f[0]['ville']))  { echo $f[0]['ville']; }?></label>
                                     <br>
                                     <label for="">&nbsp;&nbsp; Enfants à charge :</label>
                                     <input type="text" disabled="" class="form-control form-control-user" name="enfants" id="exampleFirstName" value="<?php if(isset($f[0]['enfants']))  { echo $f[0]['enfants']; }?>">
@@ -75,7 +77,8 @@ Information Client <div ><?php if($_SESSION['fonction']=="Confirmateur"){ ?> Ren
     <div class="col-sm">
     <label class="form-control " id="exampleFirstName" style="text-align:center;"> <a href="tel:+<?php echo $f[0]['Num']; ?>" target="_blank">+<?php echo $f[0]['Num']; ?></a>  </label>
                                
-                                    <br>
+                                    
+                                    <label for="">Code Postal</label>
                                     <label class="form-control " id="exampleFirstName" style="text-align:center;"><?php echo $f[0]['cp']; ?></label>
                                    <br>
                                     <label for="">&nbsp;&nbsp; Numéro Fiscal:</label>

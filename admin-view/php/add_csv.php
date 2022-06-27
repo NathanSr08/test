@@ -1,7 +1,6 @@
 <?php 
 include('base.php');
 include('js.php');
-include('../../class/bdd.php');
 // if(isset($_SESSION['id']) and $_SESSION['role']!="ADMIN")
 // {
 //     header('Location:../../aganda.php?er=1');
@@ -22,10 +21,13 @@ if(isset($_POST['import']))
         $file = fopen($FileName,"r");
         while(($colone = fgetcsv($file,1000,";")) !== FALSE)
         {
-            $p = utf8_decode($colone[1]);
-            $p= str_replace('?','é',$p);
-            $f = utf8_encode($colone[3]);
-            $c = str_replace('','€',$f);
+            // $p = utf8_decode($colone[1]);
+            // $p= str_replace('?','é',$p);
+            // $f = utf8_encode($colone[3]);
+            // $c = str_replace('','€',$f);
+            $p = $colone[1];
+            $c = $colone[3];
+
             //   echo $colone[0]; echo '<br>';
             //   echo  $p;  echo '<br>'; echo  utf8_decode($colone[2]); echo '<br>'; echo $c; echo '<br>'; echo $colone[4]; echo '<br>';  echo $colone[5];
 

@@ -3,7 +3,6 @@ ob_start();
 include('base.php');
 // include('js.php');
 
-include('../../class/bdd.php');
 if(isset($_SESSION['id']) and $_SESSION['role']!="ADMIN")
 {
     header('Location:my_leads.php?er=2');

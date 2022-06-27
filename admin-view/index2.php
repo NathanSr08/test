@@ -3,7 +3,7 @@ session_start();
 if(!isset($_SESSION['id'])){ header('Location:index.php'); }
     
 
-include('base.php'); include('../class/bdd.php'); $id = $_SESSION['id']; ?>
+include('base.php');  $id = $_SESSION['id']; ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->

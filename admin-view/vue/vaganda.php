@@ -64,10 +64,10 @@ $pdo = get_pdo();
    ?>
 <td style="text-decoration: none;" class="<?php if($mount->verifdayinmonth($date)){?>''<?php } else{ ?>prout<?php } ?>">
   <?php if($i==0):?>
-    <div class="calandar__day"><?php echo $day ?></div>
+    <div class="calandar__day">  <?php echo $day ?></div>
     <?php  endif;?>
    
-    <div style="text-decoration: none;" class="calandar_numday"><?php echo (clone $start)->modify('+ '.$k+($i * 7).' days')->format('d'); ?></div>
+    <div style="text-decoration: none;" class="calandar_numday"> <?php if($mount->verifdayinmonth($date)){ ?> <a href="../php/add.php?day=<?php echo (clone $start)->modify('+ '.$k+($i * 7).' days')->format('d'); ?>&mois=<?php echo $mount->precMonth()->month+1;?>&year=<?php echo $mount->precMonth()->year;?>"><?php echo (clone $start)->modify('+ '.$k+($i * 7).' days')->format('d'); ?></a> <?php } else { echo (clone $start)->modify('+ '.$k+($i * 7).' days')->format('d');} ?> </div>
     <?php foreach($eventsForDay as $event):  ?>
       <?php if($mount->verifdayinmonth($date)){
         ?>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php include('../class/bdd.php'); set_time($_SESSION['id']); logout_auto($_SESSION['id']);?>
 
 <head>
 
@@ -280,7 +281,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="../php/logout.php" >
+                                <a class="dropdown-item" href="php/logout.php" >
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
