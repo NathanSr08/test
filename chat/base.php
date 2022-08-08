@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    
     <?php include('../class/bdd.php'); set_time($_SESSION['id']); logout_auto($_SESSION['id']);?>
 
 <head>
@@ -290,7 +289,5 @@
                         </li>
 
                     </ul>
-                    <?php   include('index3.php'); ?>
 
                 </nav>
-

@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(); 
 if(!isset($_SESSION['id'])){ header('Location:index.php'); }
     
 
@@ -8,7 +8,6 @@ include('base.php');  $id = $_SESSION['id']; ?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
@@ -105,7 +104,7 @@ include('base.php');  $id = $_SESSION['id']; ?>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                               <a href="php/csv_libre.php">Leads Non Attribués</a>  </div>
+                                               <a href="php/csv_libre.php">Leads Non Attribués </a>  </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php  $a = count_leads_free(); echo $a["COUNT(id)"]; ?></div>
                                         </div>
                                         <div class="col-auto">

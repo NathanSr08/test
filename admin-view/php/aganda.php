@@ -3,6 +3,7 @@
 
 include('../php/base.php');
 include('../php/js.php');
+
 if(isset($_SESSION['login'])) {  $id_c = $_SESSION['id']; include('../../class/Mounth.php');include('../../class/event.php');
     if(isset($_GET['er']))
     {
